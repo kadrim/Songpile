@@ -1,0 +1,12 @@
+{
+  "name": "songpile",
+  "description": "Songpile - A tool to find and download your favourite music",
+  "author": {
+    "name": "Kadrim"
+  },
+  "version": "0.0.0",
+  "main": "main.js",
+  "private": true,
+  "dependencies": {
+  }
+}
