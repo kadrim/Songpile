@@ -182,6 +182,38 @@
           }
         }
       }
+    },
+    "angular-electron-app": {
+      "root": "app",
+      "projectType": "application",
+      "architect": {
+        "test": {
+          "builder": "@angular-builders/custom-webpack:karma",
+          "options": {
+            "main": "app/test.ts",
+            "polyfills": "app/polyfills-test.ts",
+            "tsConfig": "app/tsconfig.spec.json",
+            "karmaConfig": "app/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "scripts": [],
+            "styles": [],
+            "assets": [],
+            "customWebpackConfig": {
+              "path": "./angular.webpack.js",
+              "replaceDuplicatePlugins": true
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "app/**/*.ts",
+              "app/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-electron"
