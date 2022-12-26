@@ -208,8 +208,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "app/**/*.ts",
-              "app/**/*.html"
+              "./**/*.ts",
+              "./**/*.html"
             ]
           }
         }
