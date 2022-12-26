@@ -1,7 +1,6 @@
 import {app, BrowserWindow, screen} from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
-import { YTDLService } from './services/ytdl.service';
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
@@ -53,9 +52,6 @@ function createWindow(): BrowserWindow {
 
   return win;
 }
-
-let  ytdl = new YTDLService();
-ytdl.downloadWithAudio('https://www.youtube.com/watch?v=aqz-KE-bpKQ', path.resolve(__dirname, 'video.mp4'));
 
 try {
   // This method will be called when Electron has finished
