@@ -3,15 +3,15 @@ import * as path from 'path';
 import { YTDLService } from './ytdl.service';
 
 describe('YTDLService', () => {
-  let service = new YTDLService();
+  const service = new YTDLService();
   let originalTimeout;
 
-  beforeEach(function () {
+  beforeEach(function() {
     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
   });
 
-  afterEach(function () {
+  afterEach(function() {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
   });
 
@@ -20,7 +20,7 @@ describe('YTDLService', () => {
   });
 
   it('should download a file', async () => {
-    let outputFile = path.resolve('./', 'test.mp4');
+    const outputFile = path.resolve('./', 'test.mp4');
     await service.downloadWithAudio('https://www.youtube.com/watch?v=aqz-KE-bpKQ', outputFile);
     const fileStats = fs.statSync(outputFile);
     fs.unlinkSync(outputFile);

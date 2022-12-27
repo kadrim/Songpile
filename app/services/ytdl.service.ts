@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import * as ytdl from "ytdl-core";
+import * as ytdl from 'ytdl-core';
 
 const { pipeline } = require('stream/promises');
 
