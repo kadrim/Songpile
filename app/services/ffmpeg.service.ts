@@ -32,7 +32,7 @@ export class FFmpegService {
     return FFmpegService.instance;
   }
 
-  public async convertToMp3Buffer(videoData): Promise<Uint8Array> {
+  public async convertToMp3Buffer(videoData: Buffer | Promise<Buffer>): Promise<Uint8Array> {
     try {
       const ffmpeg = await this.getFFmpeg();
 
