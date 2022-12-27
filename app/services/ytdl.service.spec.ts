@@ -21,11 +21,11 @@ describe('YTDLService', () => {
 
   it('should download a file', async () => {
     const outputFile = path.resolve('./', 'test.mp4');
-    await service.downloadWithAudio('https://www.youtube.com/watch?v=aqz-KE-bpKQ', outputFile);
+    await service.downloadWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8', outputFile);
     const fileStats = fs.statSync(outputFile);
     fs.unlinkSync(outputFile);
 
-    expect(fileStats.size).toBeGreaterThan(100 * 1024 * 1024);
+    expect(fileStats.size).toBeGreaterThan(800 * 1024);
   });
 
 
