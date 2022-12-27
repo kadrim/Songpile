@@ -1,9 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { YTDLService } from './ytdl.service';
 
 describe('YTDLService', () => {
-  const service = new YTDLService();
+  const service: YTDLService = new YTDLService();
   let originalTimeout;
 
   beforeEach(function() {
@@ -19,13 +17,15 @@ describe('YTDLService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should download a file', async () => {
-    const outputFile = path.resolve('./', 'test.mp4');
-    await service.downloadWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8', outputFile);
-    const fileStats = fs.statSync(outputFile);
-    fs.unlinkSync(outputFile);
+  it('should download a video-stream', async () => {
+    const videoStream = await service.getStreamWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
+    const chunks = [];
+    for await (const chunk of videoStream) {
+      chunks.push(chunk);
+    }
+    const videoData = Buffer.concat(chunks);
 
-    expect(fileStats.size).toBeGreaterThan(800 * 1024);
+    expect(videoData.byteLength).toBeGreaterThan(800 * 1024);
   });
 
 

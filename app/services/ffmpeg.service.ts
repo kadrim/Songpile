@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { createFFmpeg } from '@ffmpeg/ffmpeg';
 import PQueue from 'p-queue';
 
@@ -34,12 +32,13 @@ export class FFmpegService {
     return FFmpegService.instance;
   }
 
-  public async convertToMp3(videoData, outputFileName) {
+  public async convertToMp3Buffer(videoData): Promise<Uint8Array> {
     try {
       const ffmpeg = await this.getFFmpeg();
 
-      const inputFileName = `input-video`;
-      let outputData = null;
+      const inputFileName = 'input-video';
+      const outputFileName = 'output-audio.mp3';
+      let outputData: Uint8Array = null;
 
       await this.requestQueue.add(async () => {
         ffmpeg.FS('writeFile', inputFileName, videoData);
@@ -49,17 +48,18 @@ export class FFmpegService {
           '-b:a', '192K',
           '-metadata', 'title=Track Title', '-metadata', 'artist=Artist', '-metadata', 'album=Album Name',
           '-vn',
-          path.basename(outputFileName)
+          outputFileName
         );
 
-        outputData = ffmpeg.FS('readFile', path.basename(outputFileName));
         ffmpeg.FS('unlink', inputFileName);
-        ffmpeg.FS('unlink', path.basename(outputFileName));
+        outputData = ffmpeg.FS('readFile', outputFileName);
+        ffmpeg.FS('unlink', outputFileName);
       });
 
-      fs.writeFileSync(outputFileName, outputData);
+      return outputData;
     } catch (error) {
       console.error(error);
+      return null;
     }
   }
 
