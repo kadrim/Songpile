@@ -24,4 +24,14 @@ export class YTDLService {
 
     return video;
   }
+
+  public async getVideoBufferWithAudio(videoURL: string): Promise<Buffer> {
+    const videoStream = await this.getStreamWithAudio(videoURL);
+
+    const chunks = [];
+    for await (const chunk of videoStream) {
+      chunks.push(chunk);
+    }
+    return Buffer.concat(chunks);
+  }
 }

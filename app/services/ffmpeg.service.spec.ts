@@ -22,14 +22,7 @@ describe('FFmpegService', async () => {
   });
 
   it('should convert a video-download to mp3', async () => {
-    const videoStream = await ytdlService.getStreamWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
-
-    const chunks = [];
-    for await (const chunk of videoStream) {
-      chunks.push(chunk);
-    }
-    const videoData = Buffer.concat(chunks);
-
+    const videoData = await ytdlService.getVideoBufferWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
     const audioBuffer = await ffmpegService.convertToMp3Buffer(videoData);
     expect(audioBuffer.byteLength).toBeGreaterThan(100 * 1024);
   });

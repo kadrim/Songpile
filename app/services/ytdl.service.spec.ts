@@ -1,3 +1,4 @@
+import ytdl from 'ytdl-core';
 import { YTDLService } from './ytdl.service';
 
 describe('YTDLService', () => {
@@ -18,13 +19,7 @@ describe('YTDLService', () => {
   });
 
   it('should download a video-stream', async () => {
-    const videoStream = await service.getStreamWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
-    const chunks = [];
-    for await (const chunk of videoStream) {
-      chunks.push(chunk);
-    }
-    const videoData = Buffer.concat(chunks);
-
+    const videoData = await service.getVideoBufferWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
     expect(videoData.byteLength).toBeGreaterThan(800 * 1024);
   });
 
