@@ -22,6 +22,10 @@ function createWindow(): BrowserWindow {
   protocol.registerFileProtocol('nodejs', (request, callback) => {
     const url = path.resolve('./node_modules/' + request.url.replace('nodejs://', ''));
     try {
+      if(!fs.existsSync(url)) { // if file is not available, try via asar-archive
+        const asarURL = app.getAppPath() + '/node_modules/' + request.url.replace('nodejs://', '');
+        return callback(asarURL);
+      }
       return callback(url);
     }
     catch (error) {
