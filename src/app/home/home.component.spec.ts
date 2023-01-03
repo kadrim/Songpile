@@ -3,6 +3,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ElectronService } from '../core/services/electron/electron.service';
+import { YTDLService } from '../core/services/electron/ytdl.service';
+import { FFmpegService } from '../core/services/electron/ffmpeg.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -11,6 +14,11 @@ describe('HomeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
+      providers: [
+        ElectronService,
+        YTDLService,
+        { provide: FFmpegService, useValue: FFmpegService.getInstance(true) }
+      ],
       imports: [TranslateModule.forRoot(), RouterTestingModule]
     }).compileComponents();
 
