@@ -56,6 +56,10 @@ export class FFmpegService {
         ffmpeg.FS('unlink', inputFileName);
         outputData = ffmpeg.FS('readFile', outputFileName);
         ffmpeg.FS('unlink', outputFileName);
+
+        // reload ffmpeg due to bug in single-threaded version
+        ffmpeg.exit();
+        ffmpeg.load();
       });
 
       return outputData;
