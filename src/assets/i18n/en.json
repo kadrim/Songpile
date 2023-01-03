@@ -2,7 +2,8 @@
   "PAGES": {
       "HOME": {
           "TITLE": "App works !",
-          "GO_TO_DETAIL": "Go to Detail"
+          "GO_TO_DETAIL": "Go to Detail",
+          "DOWNLOAD_AND_CONVERT": "Download & Convert"
       },
       "DETAIL": {
         "TITLE": "Detail page !",
