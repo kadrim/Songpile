@@ -1,8 +1,9 @@
+import { TestBed } from '@angular/core/testing';
+
 import { YTDLService } from './ytdl.service';
 import { FFmpegService } from './ffmpeg.service';
 
-describe('FFmpegService', async () => {
-  const ytdlService: YTDLService = new YTDLService();
+describe('FFmpegService', () => {
   let ffmpegService: FFmpegService;
 
   let originalTimeout;
@@ -22,8 +23,10 @@ describe('FFmpegService', async () => {
   });
 
   it('should convert a video-download to mp3', async () => {
+    const ytdlService: YTDLService = TestBed.get(YTDLService);
     const videoData = await ytdlService.getVideoBufferWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
     const audioBuffer = await ffmpegService.convertToMp3Buffer(videoData);
     expect(audioBuffer.byteLength).toBeGreaterThan(100 * 1024);
   });
 });
+

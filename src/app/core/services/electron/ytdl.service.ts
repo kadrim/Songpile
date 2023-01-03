@@ -1,11 +1,24 @@
+import { Injectable } from '@angular/core';
+import { ElectronService } from './electron.service';
 import { Readable } from 'stream';
 import ytdl from 'ytdl-core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class YTDLService {
-  constructor() { }
+  ytdl: typeof ytdl;
+
+  constructor(
+    private electronService: ElectronService
+  ) {
+    if (electronService.isElectron) {
+      this.ytdl = window.require('ytdl-core');
+    }
+  }
 
   public async getStreamWithAudio(videoURL: string): Promise<Readable> {
-    const video = ytdl(videoURL, {
+    const video = this.ytdl(videoURL, {
       quality: 'highestaudio',
     });
 
