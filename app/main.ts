@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, protocol } from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -17,6 +17,16 @@ function createWindow(): BrowserWindow {
       allowRunningInsecureContent: (serve),
       contextIsolation: false,  // false if you want to run e2e test with Spectron
     },
+  });
+
+  protocol.registerFileProtocol('nodejs', (request, callback) => {
+    const url = path.resolve('./node_modules/' + request.url.replace('nodejs://', ''));
+    try {
+      return callback(url);
+    }
+    catch (error) {
+      return callback({statusCode: 404});
+    }
   });
 
   if (serve) {
@@ -50,6 +60,10 @@ function createWindow(): BrowserWindow {
 }
 
 try {
+  protocol.registerSchemesAsPrivileged([
+    { scheme: 'nodejs', privileges: { supportFetchAPI: true } }
+  ]);
+
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
