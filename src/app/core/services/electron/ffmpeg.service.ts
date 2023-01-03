@@ -18,6 +18,8 @@ export class FFmpegService {
       });
     } else { // in electron/nodejs mode the wasm can be loaded directly
       this.ffmpegInstance = createFFmpeg({
+        mainName: 'main',
+        corePath: 'nodejs://@ffmpeg/core-st/dist/ffmpeg-core.js',
         log: true
       });
     }
