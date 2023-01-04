@@ -56,6 +56,8 @@ function createWindow(): BrowserWindow {
   const log = require('electron-log');
   log.transports.file.level = 'debug';
   autoUpdater.logger = log;
+  autoUpdater.autoDownload = true;
+  autoUpdater.autoInstallOnAppQuit = true;
   autoUpdater.checkForUpdatesAndNotify();
 
   // Emitted when the window is closed.
