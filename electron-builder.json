@@ -1,4 +1,6 @@
 {
+  "appId": "com.github.songpile",
+  "productName": "Songpile",
   "asar": true,
   "directories": {
     "output": "release/"
