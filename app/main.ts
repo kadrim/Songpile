@@ -1,4 +1,5 @@
 import { app, BrowserWindow, protocol } from 'electron';
+import { autoUpdater } from 'electron-updater';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -51,6 +52,11 @@ function createWindow(): BrowserWindow {
     const url = new URL(path.join('file:', __dirname, pathIndex));
     win.loadURL(url.href);
   }
+
+  const log = require('electron-log');
+  log.transports.file.level = 'debug';
+  autoUpdater.logger = log;
+  autoUpdater.checkForUpdatesAndNotify();
 
   // Emitted when the window is closed.
   win.on('closed', () => {
