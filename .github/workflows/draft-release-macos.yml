@@ -17,5 +17,5 @@ jobs:
       - run: npm i && npm i -D cli-truncate iconv-corefoundation
       - run: npm run electron:publish
         env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
-          GH_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
