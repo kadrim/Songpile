@@ -1,7 +1,6 @@
-import { TestBed } from '@angular/core/testing';
-
-import { YTDLService } from './ytdl.service';
 import { FFmpegService } from './ffmpeg.service';
+import * as path from 'path';
+import * as fs from 'fs';
 
 describe('FFmpegService', () => {
   let ffmpegService: FFmpegService;
@@ -22,9 +21,8 @@ describe('FFmpegService', () => {
     expect(ffmpegService).toBeTruthy();
   });
 
-  it('should convert a video-download to mp3', async () => {
-    const ytdlService: YTDLService = TestBed.inject(YTDLService);
-    const videoData = await ytdlService.getVideoBufferWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
+  it('should convert a mp4-video to mp3', async () => {
+    const videoData = fs.readFileSync(path.resolve('./src/assets/dummy.mp4'));
     const audioBuffer = await ffmpegService.convertToMp3Buffer(videoData);
     expect(audioBuffer.byteLength).toBeGreaterThan(100 * 1024);
   });
