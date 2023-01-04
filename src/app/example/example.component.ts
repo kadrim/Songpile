@@ -35,17 +35,13 @@ export class ExampleComponent implements OnInit {
 
   protected async downloadAndConvert() {
     if (this.electronService.isElectron) {
-      console.log('DOWNLOAD AND CONVERT');
       const videoData = await this.ytdlService.getVideoBufferWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
-      console.log(videoData);
-      console.log('CONVERTING!');
       const audioBuffer = await this.ffmpegService.convertToMp3Buffer(videoData);
-      console.log(audioBuffer);
       const outFile = this.path.resolve('./out.mp3');
-      console.log(outFile);
       this.fs.writeFileSync(outFile, audioBuffer);
+      console.log(`Wrote converted file to ${outFile}`);
     } else {
-      console.log('CANNOT DO, run in browser');
+      console.error('Cannot comply, running in browser...');
     }
   }
 }
