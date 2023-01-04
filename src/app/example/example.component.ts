@@ -7,7 +7,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-example',
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.scss']
 })

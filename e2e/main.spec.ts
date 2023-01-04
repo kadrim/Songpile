@@ -1,5 +1,7 @@
 import { BrowserContext, ElectronApplication, Page, _electron as electron } from 'playwright';
 import { test, expect } from '@playwright/test';
+import path from 'path';
+import fs from 'fs';
 const PATH = require('path');
 
 test.describe('Check Home Page', async () => {
@@ -50,6 +52,24 @@ test.describe('Check Home Page', async () => {
     const elem = await firstWindow.$('app-home h1');
     const text = await elem.innerText();
     expect(text).toBe('App works !');
+  });
+
+  test('Navigate to example-page', async () => {
+    const exampleButton = await firstWindow.$('app-home #exampleButton');
+    await exampleButton.click();
+    const elem = await firstWindow.$('app-example h1');
+    const text = await elem.innerText();
+    expect(text).toBe('Example page !');
+  });
+
+  test('Click button to download and convert sample file', async () => {
+    const dowloandAndConvertButton = await firstWindow.$('app-example #downloadAndConvert');
+    await dowloandAndConvertButton.click();
+    await firstWindow.waitForTimeout(10 * 1000);
+    const outputFile = path.resolve('./out.mp3');
+    const buffer = fs.readFileSync(outputFile);
+    fs.unlinkSync(outputFile);
+    expect(buffer.byteLength > 100 * 1024);
   });
 
   test.afterAll( async () => {
