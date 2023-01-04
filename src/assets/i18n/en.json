@@ -1,13 +1,18 @@
 {
   "PAGES": {
-      "HOME": {
-          "TITLE": "App works !",
-          "GO_TO_DETAIL": "Go to Detail",
-          "DOWNLOAD_AND_CONVERT": "Download & Convert"
-      },
-      "DETAIL": {
-        "TITLE": "Detail page !",
-        "BACK_TO_HOME": "Back to Home"
+    "HOME": {
+      "TITLE": "App works !",
+      "GO_TO_DETAIL": "Go to Detail",
+      "GO_TO_EXAMPLE": "Go to Example"
+    },
+    "DETAIL": {
+      "TITLE": "Detail page !",
+      "BACK_TO_HOME": "Back to Home"
+    },
+    "EXAMPLE": {
+      "TITLE": "Example page !",
+      "BACK_TO_HOME": "Back to Home",
+      "DOWNLOAD_AND_CONVERT": "Download & Convert"
     }
   }
 }
