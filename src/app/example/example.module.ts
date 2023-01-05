@@ -5,9 +5,10 @@ import { ExampleRoutingModule } from './example-routing.module';
 
 import { ExampleComponent } from './example.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [ExampleComponent],
-  imports: [CommonModule, SharedModule, ExampleRoutingModule]
+  imports: [CommonModule, SharedModule, ExampleRoutingModule, MatButtonModule]
 })
 export class ExampleModule {}

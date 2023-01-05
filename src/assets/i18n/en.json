@@ -1,17 +1,18 @@
 {
   "PAGES": {
+    "NAVIGATION": {
+      "HOME": "Home",
+      "DETAIL": "Detail",
+      "EXAMPLE": "Example"
+    },
     "HOME": {
-      "TITLE": "App works !",
-      "GO_TO_DETAIL": "Go to Detail",
-      "GO_TO_EXAMPLE": "Go to Example"
+      "TITLE": "App works !"
     },
     "DETAIL": {
-      "TITLE": "Detail page !",
-      "BACK_TO_HOME": "Back to Home"
+      "TITLE": "Detail page !"
     },
     "EXAMPLE": {
       "TITLE": "Example page !",
-      "BACK_TO_HOME": "Back to Home",
       "DOWNLOAD_AND_CONVERT": "Download & Convert"
     }
   }
