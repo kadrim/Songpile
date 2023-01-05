@@ -13,7 +13,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { NavigationModule } from './navigation/navigation.module';
 import { HomeModule } from './home/home.module';
-import { DetailModule } from './detail/detail.module';
+import { SettingsModule } from './settings/settings.module';
 import { ExampleModule } from './example/example.module';
 
 import { AppComponent } from './app.component';
@@ -39,7 +39,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
         SharedModule,
         NavigationModule,
         HomeModule,
-        DetailModule,
+        SettingsModule,
         ExampleModule,
         AppRoutingModule,
         MatIconModule,
