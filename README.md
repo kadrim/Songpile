@@ -1,4 +1,9 @@
 # Songpile
+
+![Windows Build](https://github.com/kadrim/Songpile/actions/workflows/windows.yml/badge.svg)
+![Linux Build](https://github.com/kadrim/Songpile/actions/workflows/ubuntu.yml/badge.svg)
+![MacOS Build](https://github.com/kadrim/Songpile/actions/workflows/macos.yml/badge.svg)
+
 Songpile - A tool to find and download your favourite music
 
 ## Disclaimer
