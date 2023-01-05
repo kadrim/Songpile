@@ -4,7 +4,7 @@ import { NavigationComponent } from './navigation.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('HomeComponent', () => {
+describe('NavigationComponent', () => {
   let component: NavigationComponent;
   let fixture: ComponentFixture<NavigationComponent>;
 
@@ -23,10 +23,10 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render title in a h1 tag', waitForAsync(() => {
+  it('should render a list of navigation with link to home', waitForAsync(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(
-      'PAGES.HOME.TITLE'
+    expect(compiled.querySelector('mat-nav-list').textContent).toContain(
+      'PAGES.NAVIGATION.HOME'
     );
   }));
 });

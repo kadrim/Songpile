@@ -55,7 +55,9 @@ test.describe('Check Home Page', async () => {
   });
 
   test('Navigate to example-page', async () => {
-    const exampleButton = await firstWindow.$('app-home #exampleButton');
+    const menuButton = await firstWindow.$('app-root #menuButton');
+    await menuButton.click();
+    const exampleButton = await firstWindow.$('app-navigation #exampleButton');
     await exampleButton.click();
     const elem = await firstWindow.$('app-example h1');
     const text = await elem.innerText();
