@@ -1,0 +1,7 @@
+@import 'template';
+
+:host {}
+
+a.active {
+  background: $light-bg-alpha-4;
+}
