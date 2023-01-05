@@ -45,6 +45,8 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   exports: [
@@ -95,6 +97,8 @@ import { DialogModule } from '@angular/cdk/dialog';
     PortalModule,
     ScrollingModule,
     DialogModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ]
 })
 export class MaterialExampleModule { }
