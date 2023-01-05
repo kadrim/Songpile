@@ -2,14 +2,14 @@
   "PAGES": {
     "NAVIGATION": {
       "HOME": "Home",
-      "DETAIL": "Detail",
+      "SETTINGS": "Settings",
       "EXAMPLE": "Example"
     },
     "HOME": {
       "TITLE": "App works !"
     },
-    "DETAIL": {
-      "TITLE": "Detail page !"
+    "SETTINGS": {
+      "TITLE": "Settings page !"
     },
     "EXAMPLE": {
       "TITLE": "Example page !",
