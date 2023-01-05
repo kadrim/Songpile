@@ -22,9 +22,6 @@
       "nsis"
     ]
   },
-  "portable": {
-    "splashImage": "dist/assets/icons/electron.bmp"
-  },
   "mac": {
     "icon": "dist/assets/icons",
     "target": [
