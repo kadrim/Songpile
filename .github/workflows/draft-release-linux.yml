@@ -8,7 +8,7 @@ on:
 
 jobs:
   draft-releases:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - run: sudo apt-get update
       - run: sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
