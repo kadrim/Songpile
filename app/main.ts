@@ -13,12 +13,14 @@ function createWindow(): BrowserWindow {
   win = new BrowserWindow({
     width: 800,
     height: 600,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve),
       contextIsolation: false,  // false if you want to run e2e test with Spectron
     },
   });
+  win.removeMenu();
 
   protocol.registerFileProtocol('nodejs', (request, callback) => {
     const url = path.resolve('./node_modules/' + request.url.replace('nodejs://', ''));
