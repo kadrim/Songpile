@@ -48,7 +48,7 @@ jobs:
     - name: Install linux dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
+        sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf fluxbox
 
     - name: Install Dependencies
       run: npm i
@@ -59,7 +59,7 @@ jobs:
     - name: Run headless unit test
       uses: GabrielBB/xvfb-action@v1
       with:
-        run: npm run test
+        run: .github/workflows/ubuntu-e2e-test.sh
 
     - name: Run headless e2e test
       uses: GabrielBB/xvfb-action@v1
