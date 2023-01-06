@@ -2,6 +2,10 @@
 
 :host {}
 
-a.active {
-  background: $light-bg-alpha-4;
+mat-nav-list a {
+  min-width: 12rem;
+
+  &.active {
+    background: $light-bg-alpha-4;
+  }
 }
