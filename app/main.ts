@@ -1,4 +1,4 @@
-import { app, BrowserWindow, protocol } from 'electron';
+import { app, BrowserWindow, protocol, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import * as path from 'path';
 import * as fs from 'fs';
@@ -7,6 +7,23 @@ let win: BrowserWindow = null;
 const args = process.argv.slice(1);
 const serve = args.some(val => val === '--serve');
 
+ipcMain.handle('window', (_event, action) => {
+  if (win !== null) {
+    switch (action) {
+      case 'minimize':
+        win.minimize();
+        break;
+      case 'close':
+        win.close();
+        break;
+      default:
+        return false;
+    }
+    return true;
+  }
+  return false;
+});
+
 function createWindow(): BrowserWindow {
 
   // Create the browser window.
@@ -14,6 +31,8 @@ function createWindow(): BrowserWindow {
     width: 800,
     height: 600,
     resizable: false,
+    frame: false,
+    backgroundColor: '#FFF',
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve),
@@ -25,14 +44,14 @@ function createWindow(): BrowserWindow {
   protocol.registerFileProtocol('nodejs', (request, callback) => {
     const url = path.resolve('./node_modules/' + request.url.replace('nodejs://', ''));
     try {
-      if(!fs.existsSync(url)) { // if file is not available, try via asar-archive
+      if (!fs.existsSync(url)) { // if file is not available, try via asar-archive
         const asarURL = app.getAppPath() + '/node_modules/' + request.url.replace('nodejs://', '');
         return callback(asarURL);
       }
       return callback(url);
     }
     catch (error) {
-      return callback({statusCode: 404});
+      return callback({ statusCode: 404 });
     }
   });
 
