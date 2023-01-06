@@ -25,4 +25,12 @@ export class AppComponent {
       console.log('Run in browser');
     }
   }
+
+  async minimizeWindow() {
+    this.electronService.ipcRenderer.invoke('window', 'minimize');
+  }
+
+  async closeWindow() {
+    this.electronService.ipcRenderer.invoke('window', 'close');
+  }
 }

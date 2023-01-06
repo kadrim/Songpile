@@ -3,6 +3,14 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Songpile</span> <mat-icon>music_note</mat-icon>
+  <div id="windowControls">
+    <button mat-icon-button aria-label="Minimize" (click)="minimizeWindow()" id="minimizeButton" #myNameElem>
+      <mat-icon>minimize</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Close" (click)="closeWindow()" id="closeButton">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
