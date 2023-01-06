@@ -1,3 +1,5 @@
+@import '../template.scss';
+
 :host {
   width: 100%;
   height: 100%;
@@ -32,3 +34,24 @@
 }
 
 .sidenav {}
+
+mat-toolbar {
+  -webkit-app-region: drag;
+
+  & button {
+    -webkit-app-region: no-drag;
+  }
+
+  & #windowControls {
+    position: absolute;
+    right: 10px;
+
+    & #minimizeButton:hover {
+      background-color: map-get($mat-primary, darker);
+    }
+
+    & #closeButton:hover {
+      background-color: map-get($mat-warn, main);
+    }
+  }
+}
