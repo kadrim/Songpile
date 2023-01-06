@@ -2,9 +2,9 @@
   <button mat-icon-button aria-label="Toggle Menu" (click)="drawer.toggle()" id="menuButton">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Songpile</span> <mat-icon>music_note</mat-icon>
+  <span>Songpile v{{ version }}</span> <mat-icon>music_note</mat-icon>
   <div id="windowControls">
-    <button mat-icon-button aria-label="Minimize" (click)="minimizeWindow()" id="minimizeButton" #myNameElem>
+    <button mat-icon-button aria-label="Minimize" (click)="minimizeWindow()" id="minimizeButton">
       <mat-icon>minimize</mat-icon>
     </button>
     <button mat-icon-button aria-label="Close" (click)="closeWindow()" id="closeButton">
