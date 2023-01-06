@@ -59,12 +59,12 @@ jobs:
     - name: Run headless unit test
       uses: GabrielBB/xvfb-action@v1
       with:
-        run: .github/workflows/ubuntu-e2e-test.sh
+        run: npm run test
 
     - name: Run headless e2e test
       uses: GabrielBB/xvfb-action@v1
       with:
-        run: npm run e2e
+        run: .github/workflows/ubuntu-e2e-test.sh
 
     - name: Build the app
       run: npm run electron:build
