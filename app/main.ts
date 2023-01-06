@@ -24,6 +24,8 @@ ipcMain.handle('window', (_event, action) => {
   return false;
 });
 
+ipcMain.handle('getPath', (_event, name) => app.getPath(name));
+
 function createWindow(): BrowserWindow {
 
   // Create the browser window.
