@@ -74,6 +74,28 @@ test.describe('Check Home Page', async () => {
     expect(buffer.byteLength > 100 * 1024);
   });
 
+  test('Minimize Window via Custom-Controls', async () => {
+    const minimizeButton = await firstWindow.$('app-root #minimizeButton');
+    await minimizeButton.click();
+    const windowState: { isMinimized: boolean } = await app.evaluate(async (process) => {
+      const mainWindow = process.BrowserWindow.getAllWindows()[0];
+
+      const getState = () => ({
+        isMinimized: mainWindow.isMinimized(),
+      });
+
+      return new Promise((resolve) => {
+        if (mainWindow.isMinimized()) {
+          resolve(getState());
+        } else {
+          mainWindow.on('minimize', () => setTimeout(() => resolve(getState()), 0));
+        }
+      });
+    });
+
+    expect(windowState.isMinimized).toBeTruthy();
+  });
+
   test.afterAll( async () => {
     await context.tracing.stop({ path: 'e2e/tracing/trace.zip' });
     await app.close();
