@@ -36,6 +36,7 @@
     "electron:publish": "npm run build:prod && electron-builder build --publish=always",
     "test": "ng test --watch=false",
     "test:watch": "ng test",
+    "coverage": "ng test --watch=false --code-coverage",
     "e2e": "npm run build:prod && playwright test -c e2e/playwright.config.ts e2e/",
     "e2e:show-trace": "playwright show-trace e2e/tracing/trace.zip",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",

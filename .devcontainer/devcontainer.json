@@ -1,4 +1,4 @@
-{	
+{
 	"name": "Songpile",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
@@ -13,14 +13,15 @@
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
 			"settings": {},
-			
+
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-azuretools.vscode-docker",
 				"dbaeumer.vscode-eslint",
 				"Angular.ng-template",
 				"eamodio.gitlens",
-				"usernamehw.errorlens"
+				"usernamehw.errorlens",
+        "ryanluker.vscode-coverage-gutters"
 			]
 		}
 	}
