@@ -3,6 +3,8 @@
 [![Windows Build](https://github.com/kadrim/Songpile/actions/workflows/windows.yml/badge.svg?event=push)](https://github.com/kadrim/Songpile/actions/workflows/windows.yml)
 [![Linux Build](https://github.com/kadrim/Songpile/actions/workflows/ubuntu.yml/badge.svg?event=push)](https://github.com/kadrim/Songpile/actions/workflows/ubuntu.yml)
 [![MacOS Build](https://github.com/kadrim/Songpile/actions/workflows/macos.yml/badge.svg?event=push)](https://github.com/kadrim/Songpile/actions/workflows/macos.yml)
+![Angular Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kadrim/8909b175390d64b89f1d8e58d6e430e7/raw/songpile__angular__heads_main.json)
+![Electron Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kadrim/8909b175390d64b89f1d8e58d6e430e7/raw/songpile__angular__heads_main.json)
 
 Songpile - A tool to find and download your favourite music
 
