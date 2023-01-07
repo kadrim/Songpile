@@ -16,7 +16,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  coverage:
     strategy:
       matrix:
         node-version: [16]
@@ -74,8 +74,12 @@ jobs:
         echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
     - name: Get Angular Coverage Value
       run: |
-        COVERAGE="$(jq '.total.lines.pct | tonumber | floor' ./coverage/angular/coverage-summary.json)"
+        COVERAGE="$(jq '.total.lines.pct | tonumber | floor' ./coverage/angular/coverage-summary.json) || echo 0"
         echo "COVERAGE_ANGULAR=$(echo ${COVERAGE})" >> $GITHUB_ENV
+    - name: Get Electron Coverage Value
+      run: |
+        COVERAGE="$(jq '.total.lines.pct | tonumber | floor' ./coverage/electron/coverage-summary.json) || echo 0"
+        echo "COVERAGE_ELECTRON=$(echo ${COVERAGE})" >> $GITHUB_ENV
     - name: Create Angular Coverage Badge
       uses: schneegans/dynamic-badges-action@v1.6.0
       with:
@@ -86,5 +90,17 @@ jobs:
         message: ${{ env.COVERAGE_ANGULAR }}%
         namedLogo: jasmine
         valColorRange: ${{ env.COVERAGE_ANGULAR }}
+        maxColorRange: 90
+        minColorRange: 50
+    - name: Create Electron Coverage Badge
+      uses: schneegans/dynamic-badges-action@v1.6.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: 8909b175390d64b89f1d8e58d6e430e7
+        filename: songpile__angular__${{ env.BRANCH }}.json
+        label: Electron Coverage
+        message: ${{ env.COVERAGE_ELECTRON }}%
+        namedLogo: jasmine
+        valColorRange: ${{ env.COVERAGE_ELECTRON }}
         maxColorRange: 90
         minColorRange: 50
