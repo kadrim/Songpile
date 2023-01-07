@@ -98,7 +98,7 @@ jobs:
       with:
         auth: ${{ secrets.GIST_SECRET }}
         gistID: 8909b175390d64b89f1d8e58d6e430e7
-        filename: songpile__angular__${{ env.BRANCH }}.json
+        filename: songpile__electron__${{ env.BRANCH }}.json
         label: Electron Coverage
         labelColor: darkblue
         message: ${{ env.COVERAGE_ELECTRON }}%
