@@ -9,24 +9,26 @@ export class Main {
   private serve = this.args.some(val => val === '--serve');
 
   constructor() {
-    ipcMain.handle('window', (_event, action) => {
-      if (this.win !== null) {
-        switch (action) {
-          case 'minimize':
-            this.win.minimize();
-            break;
-          case 'close':
-            this.win.close();
-            break;
-          default:
-            return false;
+    if(ipcMain !== undefined) {
+      ipcMain.handle('window', (_event, action) => {
+        if (this.win !== null) {
+          switch (action) {
+            case 'minimize':
+              this.win.minimize();
+              break;
+            case 'close':
+              this.win.close();
+              break;
+            default:
+              return false;
+          }
+          return true;
         }
-        return true;
-      }
-      return false;
-    });
+        return false;
+      });
 
-    ipcMain.handle('getPath', (_event, name) => app.getPath(name));
+      ipcMain.handle('getPath', (_event, name) => app.getPath(name));
+    }
 
     try {
       protocol.registerSchemesAsPrivileged([
