@@ -74,11 +74,11 @@ jobs:
         echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
     - name: Get Angular Coverage Value
       run: |
-        COVERAGE="$(jq '.total.lines.pct | tonumber | floor' ./coverage/angular/coverage-summary.json) || echo 0"
+        COVERAGE="$(jq '.total.lines.pct | tonumber | floor' ./coverage/angular/coverage-summary.json || echo 0)"
         echo "COVERAGE_ANGULAR=$(echo ${COVERAGE})" >> $GITHUB_ENV
     - name: Get Electron Coverage Value
       run: |
-        COVERAGE="$(jq '.total.lines.pct | tonumber | floor' ./coverage/electron/coverage-summary.json) || echo 0"
+        COVERAGE="$(jq '.total.lines.pct | tonumber | floor' ./coverage/electron/coverage-summary.json || echo 0)"
         echo "COVERAGE_ELECTRON=$(echo ${COVERAGE})" >> $GITHUB_ENV
     - name: Create Angular Coverage Badge
       uses: schneegans/dynamic-badges-action@v1.6.0
