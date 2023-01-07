@@ -90,6 +90,7 @@ jobs:
         labelColor: darkblue
         message: ${{ env.COVERAGE_ANGULAR }}%
         namedLogo: angular
+        logoColor: white
         valColorRange: ${{ env.COVERAGE_ANGULAR }}
         maxColorRange: 90
         minColorRange: 50
@@ -103,6 +104,7 @@ jobs:
         labelColor: darkblue
         message: ${{ env.COVERAGE_ELECTRON }}%
         namedLogo: electron
+        logoColor: white
         valColorRange: ${{ env.COVERAGE_ELECTRON }}
         maxColorRange: 90
         minColorRange: 50
