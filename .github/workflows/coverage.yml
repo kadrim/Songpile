@@ -87,8 +87,9 @@ jobs:
         gistID: 8909b175390d64b89f1d8e58d6e430e7
         filename: songpile__angular__${{ env.BRANCH }}.json
         label: Angular Coverage
+        labelColor: darkblue
         message: ${{ env.COVERAGE_ANGULAR }}%
-        namedLogo: jasmine
+        namedLogo: angular
         valColorRange: ${{ env.COVERAGE_ANGULAR }}
         maxColorRange: 90
         minColorRange: 50
@@ -99,8 +100,9 @@ jobs:
         gistID: 8909b175390d64b89f1d8e58d6e430e7
         filename: songpile__angular__${{ env.BRANCH }}.json
         label: Electron Coverage
+        labelColor: darkblue
         message: ${{ env.COVERAGE_ELECTRON }}%
-        namedLogo: jasmine
+        namedLogo: electron
         valColorRange: ${{ env.COVERAGE_ELECTRON }}
         maxColorRange: 90
         minColorRange: 50
