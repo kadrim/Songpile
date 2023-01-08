@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
 
 class Channel {
-  constructor(public name: string, public listener: (arg0: object, ...args) => void) { }
+  constructor(public name: string, public listener: (arg0: object, ...args: any) => void) { }
 }
 
 export class Message {
@@ -19,7 +19,9 @@ export class FakeElectronService {
     once: (name: string, listener: () => void) => {
       this.channels.push(new Channel(name, listener));
     },
-    send: (channel: string, args: string) => { }
+    send: (channel: string, args: string) => { },
+
+    invoke: async (channel: string, ...args: any[]): Promise<any> => null
   };
 
   private channels: Channel[] = [];
