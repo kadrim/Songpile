@@ -13,6 +13,7 @@ import * as fs from 'fs';
 })
 export class ExampleComponent implements OnInit {
 
+  message: string;
   path: typeof path;
   fs: typeof fs;
   private ffmpegService: FFmpegService;
@@ -22,6 +23,10 @@ export class ExampleComponent implements OnInit {
     private electronService: ElectronService,
     private ytdlService: YTDLService
   ) {
+    this.electronService.ipcRenderer.on('asynchronous-reply', (event: Electron.IpcRendererEvent, arg: string) => {
+      this.message = arg;
+    });
+
     if (electronService.isElectron) {
       this.path = window.require('path');
       this.fs = window.require('fs');
@@ -31,6 +36,10 @@ export class ExampleComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('ExampleComponent INIT');
+  }
+
+  sendMessage(msg: string) {
+    this.electronService.ipcRenderer.send('sendMessage', msg);
   }
 
   protected async downloadAndConvert() {
