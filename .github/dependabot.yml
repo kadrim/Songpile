@@ -1,5 +1,17 @@
 version: 2
 updates:
+- package-ecosystem: "npm"
+    # Files stored in `/` directory
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+- package-ecosystem: "npm"
+    # Files stored in `app` directory
+    directory: "/app"
+    schedule:
+      interval: "daily"
+
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
