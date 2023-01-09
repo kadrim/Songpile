@@ -1,3 +1,6 @@
+![Angular Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kadrim/8909b175390d64b89f1d8e58d6e430e7/raw/songpile__angular__pull_##PR##.json)
+![Electron Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kadrim/8909b175390d64b89f1d8e58d6e430e7/raw/songpile__angular__pull_##PR##.json)
+
 # Description
 
 Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
