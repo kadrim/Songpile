@@ -24,6 +24,9 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
+    captureTimeout: 120000,
+    browserDisconnectTolerance: 3,
+    browserDisconnectTimeout : 60000,
     browserNoActivityTimeout: 60000,
     browsers: ['AngularElectron'],
     customLaunchers: {
