@@ -14,7 +14,7 @@ export class SettingsService {
 
   static readonly minAudioBitrate = 96;
   static readonly maxAudioBitrate = 320;
-  static readonly defaultAudioBitrate = 128;
+  static readonly defaultAudioBitrate = 192;
 
   private static readonly storageFilename = 'settings';
   private static readonly storagePath = 'userData';
