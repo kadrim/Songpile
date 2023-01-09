@@ -13,7 +13,7 @@ export class AppComponent {
   public version: string = packageJson.version;
 
   constructor(
-    private electronService: ElectronService,
+    protected electronService: ElectronService,
     private translate: TranslateService
   ) {
     this.translate.setDefaultLang('en');
