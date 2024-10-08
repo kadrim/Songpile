@@ -53,6 +53,13 @@ jobs:
 
     - name: Check lint
       run: npm run lint
+    
+    - name: Prepare Cookies
+      shell: bash
+      run: |
+          cat << EOF > cookies.json
+          ${{ secrets.YOUTUBE_COOKIES }}
+          EOF
 
     - name: Run headless unit test
       run: npm run test
