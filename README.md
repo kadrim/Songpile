@@ -4,7 +4,7 @@
 [![Linux Build](https://github.com/kadrim/Songpile/actions/workflows/ubuntu.yml/badge.svg?event=push)](https://github.com/kadrim/Songpile/actions/workflows/ubuntu.yml)
 [![MacOS Build](https://github.com/kadrim/Songpile/actions/workflows/macos.yml/badge.svg?event=push)](https://github.com/kadrim/Songpile/actions/workflows/macos.yml)
 
-Songpile - A tool to find and download your favourite music
+Songpile - A tool to find and download your favourite music 
 
 ## Installation
 
