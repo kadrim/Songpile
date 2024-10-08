@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ElectronService } from './electron.service';
 import { Readable } from 'stream';
-import ytdl from 'ytdl-core';
+import ytdl from '@distube/ytdl-core';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class YTDLService {
     private electronService: ElectronService
   ) {
     if (electronService.isElectron) {
-      this.ytdl = window.require('ytdl-core');
+      this.ytdl = window.require('@distube/ytdl-core');
     }
   }
 
