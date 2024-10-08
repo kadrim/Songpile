@@ -41,6 +41,7 @@ npm-debug.log
 testem.log
 /typings
 !app/karma.conf.js
+/cookies.json
 
 # e2e
 /e2e/*.js

@@ -8,18 +8,28 @@ import ytdl from '@distube/ytdl-core';
 })
 export class YTDLService {
   ytdl: typeof ytdl;
+  agent: any;
 
   constructor(
     private electronService: ElectronService
   ) {
     if (electronService.isElectron) {
       this.ytdl = window.require('@distube/ytdl-core');
+
+      const cookieFile = 'cookies.json';
+      if(electronService.fs.existsSync(cookieFile)) {
+        console.log(`Found ${cookieFile}! Trying to inject into ytdl-agent ...`);
+        this.agent = this.ytdl.createAgent(JSON.parse(electronService.fs.readFileSync(cookieFile, 'utf8')));
+      } else {
+        this.agent = undefined;
+      }
     }
   }
 
   public async getStreamWithAudio(videoURL: string): Promise<Readable> {
     const video = this.ytdl(videoURL, {
       quality: 'highestaudio',
+      agent: this.agent
     });
 
     let starttime;
