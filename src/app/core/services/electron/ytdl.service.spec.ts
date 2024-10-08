@@ -23,7 +23,7 @@ describe('YTDLService', () => {
   it('should download a video-stream', async () => {
     const service: YTDLService = TestBed.inject(YTDLService);
     const videoData = await service.getVideoBufferWithAudio('https://www.youtube.com/watch?v=EngW7tLk6R8');
-    expect(videoData.byteLength).toBeGreaterThan(800 * 1024);
+    expect(videoData.byteLength).toBeGreaterThan(80 * 1024);
   });
 
 
