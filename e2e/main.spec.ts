@@ -14,6 +14,14 @@ test.describe('Check Home Page', async () => {
     context = app.context();
     await context.tracing.start({ screenshots: true, snapshots: true });
     firstWindow = await app.firstWindow();
+    firstWindow.on('console', (message) => {
+      if (message.type() === 'error') {
+        console.error(message.text());
+      } else {
+        console.log(message.text());
+      }
+    });
+
     await firstWindow.waitForLoadState('domcontentloaded');
   });
 

@@ -1,5 +1,8 @@
+import { Main } from './main';
+
 describe('Main', () => {
-  it('dummy test', () => {
-    expect(1).toBeTruthy();
+  it('Create instance', () => {
+    const main = new Main();
+    expect(main).toBeTruthy();
   });
 });

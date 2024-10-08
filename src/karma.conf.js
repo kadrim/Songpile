@@ -16,14 +16,18 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, 'coverage'),
-      reports: [ 'html', 'lcovonly' ],
+      dir: require('path').join(__dirname, '../coverage/angular'),
+      reports: [ 'html', 'lcovonly', 'text-summary', 'json-summary' ],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
+    captureTimeout: 120000,
+    browserDisconnectTolerance: 3,
+    browserDisconnectTimeout : 60000,
+    browserNoActivityTimeout: 60000,
     browsers: ['AngularElectron'],
     customLaunchers: {
       AngularElectron: {

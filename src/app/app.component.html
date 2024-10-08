@@ -3,7 +3,7 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Songpile v{{ version }}</span> <mat-icon>music_note</mat-icon>
-  <div id="windowControls">
+  <div id="windowControls" *ngIf="electronService.isElectron">
     <button mat-icon-button aria-label="Minimize" (click)="minimizeWindow()" id="minimizeButton">
       <mat-icon>minimize</mat-icon>
     </button>

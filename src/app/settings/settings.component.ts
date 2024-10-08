@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../core/services/electron/settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
     console.log('SettingsComponent INIT');
-   }
+  }
 
 }
